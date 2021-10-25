@@ -1,0 +1,46 @@
+{
+	"trealet":{
+		"name": "explorer",
+		"owner": "Bảo tàng Văn hóa các Dân tộc Việt Nam",
+		"title": "Trò chơi khám phá văn hóa người Mường",
+		"desc" : "Đấy là trò chơi giúp người tham quan bảo tàng tự khám phá câu chuyện theo một kịch bản cụ thể. Người chơi đến nơi trưng bày hiện vật để check in bằng mã QR và tương tác bằng trả lời câu hỏi vui",
+		"steps":[
+			{
+				"type":"QR",
+				"hint":"Hãy đến phòng số ..., tìm đến hiện vật, ..., ",
+				"code":"http://traelet.com/tiny818/"
+			},
+			{
+				"type":"Display",
+				"image":"602"
+			},
+			{
+				"type":"Quiz1",
+				"question":"Khoa thi đầu tiên của nước ta tổ chức năm nào?",
+				"option1":"1075",
+				"option2":"1077",
+				"option3":"938",
+				"option4":"1225",
+				"answer":"1"
+			},
+			{
+				"type":"Quiz1",
+				"question":"Ai là trạng nguyên đầu tiên của nước ta?",
+				"option1":"Vũ Kiệt",
+				"option2":"Lê Văn Thịnh",
+				"option3":"Nguyễn Hiền",
+				"option4":"Mạc Đĩnh Chi",
+				"answer":"2"
+			},
+			{
+				"type":"Display",
+				"image":"60"
+			},
+			{
+				"type":"QR",
+				"hint":"Hãy đển cổng chính của bảo tàng và tìm mã QR để kết thúc trò chơi",
+				"code":"http://traelet.com/tiny818/"
+			}
+		]
+	}
+}
