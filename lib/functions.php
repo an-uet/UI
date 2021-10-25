@@ -146,10 +146,3 @@ function htmlItem($trealet_id,$nij, $css_input_id='',$idata, $itime, $timeline_i
 }
 
 
-function showMoreInformation($idata,$index) {
-	$title 	  = isset($idata['title'])?$idata['title']:'';;
-	$desc	  = isset($idata['desc'])?$idata['desc']:'';
-	$url_full = isset($idata['url_full'])?$idata['url_full']:'';
-	$html = '<a href="'.$url_full.'" data-fancybox="'.$index.'" data-caption="'.$desc.'">';
-	return $html;
-}

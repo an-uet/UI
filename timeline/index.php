@@ -39,17 +39,16 @@ $iu = array($ni);
         for ($j = 0; $j < sizeof($itemid['more']); $j++) {
           $more = $itemid['more'][$j];
           $more_data = fetchItemData($more);
-          // echo showMoreInformation($more_data, $i);
           $url_full = $more_data['url_full'];
           $desc = $more_data['desc'];
           $html .= '<a href="' . $url_full . '" data-fancybox="' . $i . '" data-caption="' . $desc . '">';
-        } 
+        }
       }
 
       ?>
     </div>
   </div>
-  <?php echo $html;?>
+  <?php echo $html; ?>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
