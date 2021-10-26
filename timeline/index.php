@@ -111,6 +111,11 @@ $iu = array($ni);
 
     $("#timeline-1").timeline();
   </script>
+  <script>
+    Fancybox.bind("[data-fancybox]", {
+      placeFocusBack: false,
+    });
+  </script>
 </body>
 
 </html>
