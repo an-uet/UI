@@ -34,8 +34,9 @@ $iu = array($ni);
       for ($i = 0; $i < $ni; $i++) {
         $itemid = $d['items'][$i];
         $itime = $itemid['time'];
+        $idesc = $itemid['idesc'];
         $idata   = fetchItemData($itemid['image']);
-        echo htmlItem('', 1, '', $idata, $itime, 'timeline-item', 'timeline__content', 'timeline__img', 'timeline__content-title', 'timeline__content-desc', $i);
+        echo htmlItem('', 1, '', $idata, $itime, 'timeline-item', 'timeline__content', 'timeline__img', 'timeline__content-title', 'timeline__content-desc', $i, $idesc);
         for ($j = 0; $j < sizeof($itemid['more']); $j++) {
           $more = $itemid['more'][$j];
           $more_data = fetchItemData($more);

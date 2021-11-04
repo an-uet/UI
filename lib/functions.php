@@ -35,7 +35,7 @@ function fetchItemData($item_url){
 	}
 }
 
-function htmlItem($trealet_id,$nij, $css_input_id='',$idata, $itime, $timeline_item='', $timeline__content='', $timeline__img='', $timeline__content_title='', $timeline__content_desc='',$index_more){
+function htmlItem($trealet_id,$nij, $css_input_id='',$idata, $itime, $timeline_item='', $timeline__content='', $timeline__img='', $timeline__content_title='', $timeline__content_desc='',$index_more, $idesc){
 	if(isset($idata['url_full']))//Show up the data item
 	{
 		$title 	  = isset($idata['title'])?$idata['title']:'';;
@@ -52,13 +52,13 @@ function htmlItem($trealet_id,$nij, $css_input_id='',$idata, $itime, $timeline_i
 		if($ext=='GIF' || $ext=='JPEG'|| $ext=='JPG'|| $ext=='PNG'|| $ext=='TIF'|| $ext=='TIFF'){
 			//$vobj .= '<center><img src="'.$url_full.'" style="max-width:90%;"></center>';
 			
-			$html = '<div class="'.$timeline_item.'" data-text="'.$title.'">
+			$html = '<div class="'.$timeline_item.'" data-text="'.$desc.'">
 						<div class="'.$timeline__content.'">
-							<a href="'.$url_full.'"  data-fancybox="'.$index_more.'" data-caption="'.$title.'">
+							<a href="'.$url_full.'"  data-fancybox="'.$index_more.'" data-caption="'.$desc.'">
 								<img class="'.$timeline__img.'" src="'.$url_full.'">
 							</a>
 							<h2 class="'.$timeline__content_title.'">'.$itime.'</h2>
-							<p class="'.$timeline__content_desc.'">'.$desc.'</p>
+							<p class="'.$timeline__content_desc.'">'.$idesc.'</p>
 						</div>
 					</div>';
 		}
@@ -76,13 +76,13 @@ function htmlItem($trealet_id,$nij, $css_input_id='',$idata, $itime, $timeline_i
 			$vobj .= '<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/'.$vid.'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 			$vobj .= '</div>';
 
-			$html = '<div class="'.$timeline_item.'" data-text="'.$title.'">
+			$html = '<div class="'.$timeline_item.'" data-text="'.$desc.'">
 						<div class="'.$timeline__content.'">
 							<div style="position: relative; width: 90%; height: 0; padding-bottom: 50%;">
 								<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/'.$vid.'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							</div>
 							<h2 class="'.$timeline__content_title.'">'.$itime.'</h2>
-							<p class="'.$timeline__content_desc.'">'.$desc.'</p>
+							<p class="'.$timeline__content_desc.'">'.$idesc.'</p>
 						</div>
 					</div>';
 		}
@@ -99,11 +99,11 @@ function htmlItem($trealet_id,$nij, $css_input_id='',$idata, $itime, $timeline_i
 		if($ext=='MP3'){
 			$vobj = '<audio controls><source src="'.$url_full.'" type="audio/mpeg">Your browser does not support the audio tag.</audio>';
 			
-			$html = '<div class="'.$timeline_item.'" data-text="'.$title.'">
+			$html = '<div class="'.$timeline_item.'" data-text="'.$desc.'">
 						<div class="'.$timeline__content.'">
 							<audio controls><source src="'.$url_full.'" type="audio/mpeg">Your browser does not support the audio tag.</audio>
 							<h2 class="'.$timeline__content_title.'">'.$itime.'</h2>
-							<p class="'.$timeline__content_desc.'">'.$desc.'</p>
+							<p class="'.$timeline__content_desc.'">'.$idesc.'</p>
 						</div>
 					</div>';
 		}
@@ -112,13 +112,13 @@ function htmlItem($trealet_id,$nij, $css_input_id='',$idata, $itime, $timeline_i
 		if($ext=='MP4'){
 			$vobj = '<video width="90%" height="auto" controls><source src="'.$url_full.'" type="video/mp4">Your browser does not support the video tag.</video>';
 			
-			$html = '<div class="'.$timeline_item.'" data-text="'.$title.'">
+			$html = '<div class="'.$timeline_item.'" data-text="'.$desc.'">
 						<div class="'.$timeline__content.'">
-							<a href="'.$url_full.'"  data-fancybox="'.$index_more.'" data-caption="'.$title.'">
+							<a href="'.$url_full.'"  data-fancybox="'.$index_more.'" data-caption="'.$desc.'">
 								<video width="90%" height="auto" controls><source src="'.$url_full.'" type="video/mp4">Your browser does not support the video tag.</video>
 							</a>
 							<h2 class="'.$timeline__content_title.'" style="padding: 30px 10px;">'.$itime.'</h2>
-							<p class="'.$timeline__content_desc.'">'.$desc.'</p>
+							<p class="'.$timeline__content_desc.'">'.$idesc.'</p>
 							
 						</div>
 					</div>';
@@ -140,7 +140,7 @@ function htmlItem($trealet_id,$nij, $css_input_id='',$idata, $itime, $timeline_i
 			}else if($type=='qr'){
 				$vobj 	 .= '<iframe style="position: relative; width: 90%;" src="https://hcloud.trealet.com/trealet-schema/input-qr/index.php?tr_id='.$trealet_id.'&nij='.$nij.'" title="Scan QR code from camera" frameborder="0" allow="camera" onload="this.style.height=(this.contentWindow.document.body.scrollHeight+200)+\'px\';"></iframe>';
 			}
-			$html 	  = '<div id="'.$css_input_id.'"><h1>'.$title.'</h1><center>'.$vobj.'</center><br><p>'.$desc.'</p></div>';
+			$html 	  = '<div id="'.$css_input_id.'"><h1>'.$desc.'</h1><center>'.$vobj.'</center><br><p>'.$idesc.'</p></div>';
 			return $html;
 		}
 }
