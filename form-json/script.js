@@ -217,6 +217,7 @@ $(document).ready(function () {
         renderItemsListView();
     })
 
+    
     $(document).on('click', '.duplicate-item', function () {
         let index = getIndexOfItem($(this).closest('.item'));
         let newItem = {
