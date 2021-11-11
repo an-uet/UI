@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a trealet</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>Welcome to Trealet</h1>
+	</header>
+	<div id="navigation-bar-container">
+		<ul class="horizontal" id="navigation-bar">
+			<li id="showoff"><a href="#">Tạo trang trình bày</a></li>
+			<li id="activities"><a href="#">Tạo Activities</a></li>
+		</ul>
+	</div>
+	<div id="container">
+		<!-- Menu chính -->
+		<div class="pane" id="left-pane">
+			<div class="vertical sidebar menu buttons">
+				<button id="new" class="button" type="submit">
+					<i class="fas fa-file-medical"></i><br>Tạo mới
+				</button>
+                <button id="save" class="button" type="submit">
+					<i class="fas fa-save"></i><br> Lưu
+				</button>
+				<a download="showoff.trealet" id="download"><i class="fas fa-download"></i><br> Tải về</a>
+			</div>
+		</div>
+		<div class="pane" id="center-pane">
+			<!-- Form nhập chính -->
+			<form class="vertical" id="main-form">
+				<h3>Thông tin chung của trang trình bày</h3>
+				<div class="input-container">
+					<label class="medium-label">Phương pháp</label>
+					<select id="exec">
+						<option value="timeline">Timeline</option>
+						<option value="slideshow">Slideshow</option>
+						<option value="gallery">Gallery</option>
+					</select>
+				</div>
+				<div class="input-container">
+					<label class="medium-label">Tiêu đề</label>
+					<input type="text" id="title"/>
+				</div>
+				<div class="input-container">
+					<label class="medium-label">Tác giả</label>
+					<input type="text" id="author"/>
+				</div>
+				<div class="input-container">
+					<label class="medium-label">Mô tả về trang trình bày</label>
+					<textarea class="text-area" id="desc" rows="3"></textarea>
+				</div>
+				<div class="horizontal buttons main-form-btns">
+					<button id="hide-main-form" class="button" type="submit">
+						<i class="fas fa-angle-double-up"></i> Thu gọn
+					</button>
+					<button id="show-main-form" class="button" type="submit">
+						<i class="fas fa-angle-double-down"></i> Mở rộng
+					</button>
+				</div>
+			</form>
+			<!-- Danh sách items view -->
+			<div class="vertical" id="items-list">
+				<h3>Danh sách item</h3>
+				<div class="vertical" id="items-list-rows">
+					
+					
+				</div>
+			</div>
+		</div>
+		<div class="pane" id="right-pane">
+			<!-- Form nhập Items -->
+			<form class="vertical" id="item-form">
+				<h3>Thông tin mốc thời gian</h3>
+				<div class="input-container">
+					<label class="medium-label">Thời gian</label>
+					<input type="text" class="iinput" id="itime">
+				</div>
+				<div class="input-container">
+					<label class="medium-label">File đa phương tiện</label>
+					<input type="text" class="iinput" id="iid"
+					placeholder="Nhập id của file đa phương tiện">
+				</div>
+				<div class="input-container">
+					<label class="medium-label">Mô tả về mốc thời gian</label>
+					<textarea  class="iinput" id="idesc" rows="6"></textarea>
+				</div>
+				<div class="input-container">
+					<label class="medium-label">File đa phương tiện liên quan</label>
+					<textarea  class="iinput" id="imore" rows="3" 
+						placeholder="Nhập id của file đa phương tiện liên quan (các id ngăn cách bởi dấu phẩy)"></textarea>
+				</div>
+			</form>
+			<!-- Các nút cho item form -->
+			<div class="horizontal buttons item-form-btns">
+                <button id="clear" class="button" type="submit">
+					<i class="fas fa-redo"></i> Nhập lại
+				</button>
+                <button id="add" class="button" type="submit">
+					<i class="fas fa-plus"></i> Thêm vào
+				</button> 
+                <button id="update" class="button" type="submit">
+					<i class="fas fa-check"></i> Cập nhật
+				</button> 
+			</div>
+		</div>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
