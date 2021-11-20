@@ -63,16 +63,15 @@ $iu = array($ni);
           activeClass: "timeline-item--active",
           img: ".timeline__img"
         };
-        selectors.item.eq(0).addClass(selectors.activeClass);
-        selectors.id.css(
-          "background-image",
-          "url(" +
-          selectors.item
-          .first()
-          .find(selectors.img)
-          .attr("src") +
-          ")"
-        );
+        /* selectors.id.css(
+           "background-image",
+           "url(" +
+           selectors.item
+             .first()
+             .find(selectors.img)
+             .attr("src") +
+           ")"
+         );*/
         var itemLength = selectors.item.length;
         $(window).scroll(function() {
           var max, min;
@@ -83,25 +82,25 @@ $iu = array($ni);
             var that = $(this);
             if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
               selectors.item.removeClass(selectors.activeClass);
-              selectors.id.css(
+              /*selectors.id.css(
                 "background-image",
                 "url(" +
                 selectors.item
-                .last()
-                .find(selectors.img)
-                .attr("src") +
+                  .last()
+                  .find(selectors.img)
+                  .attr("src") +
                 ")"
-              );
+              );*/
               selectors.item.last().addClass(selectors.activeClass);
-            } else if (pos <= max - 40 && pos >= min) {
-              selectors.id.css(
-                "background-image",
+            } else if (pos <= max - 0 && pos >= min) {
+              /*selectors.id.css(
+               // "background-image",
                 "url(" +
                 $(this)
-                .find(selectors.img)
-                .attr("src") +
+                  .find(selectors.img)
+                  .attr("src") +
                 ")"
-              );
+              );*/
               selectors.item.removeClass(selectors.activeClass);
               $(this).addClass(selectors.activeClass);
             }
@@ -112,6 +111,15 @@ $iu = array($ni);
 
     $("#timeline-1").timeline();
   </script>
+
+
+
+  <script>
+    //set color to trealet.
+    $('.timeline-container').css('background-color', '<?php echo $d['bgcolor']; ?>') //set background-color
+    $('.timeline-header__title,.timeline-header__subtitle, .timeline__content-desc, .timeline__content-title, .timeline-item').css('color', '<?php echo $d['color']; ?>') //set text color.
+  </script>
+
   <script>
     Fancybox.bind("[data-fancybox]", {
       placeFocusBack: false,

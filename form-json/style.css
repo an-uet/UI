@@ -3,15 +3,19 @@ body {
     padding: 0;
 }
 
+
 /* ------------------------------------------- */
+
 header {
     background-color: rgb(16, 3, 43);
     color: white;
     text-align: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
+
 /* ------------------------------NAVIGATION-------------------------------- */
+
 #navigation-bar-container {
     display: flex;
     justify-content: center;
@@ -40,7 +44,9 @@ header {
     font-weight: 600;
 }
 
+
 /* --------------------------------------PANES------------------------------------------- */
+
 #container {
     border-top: solid 1px gainsboro;
     background-color: beige;
@@ -63,23 +69,20 @@ header {
 #center-pane {
     width: 52%;
     min-width: 350px;
-                            /* --------------------->Đây là chỗ chỉnh màu cho danh sách item  */
-    /* background-color: rgb(224, 224, 224); */
-    /* background-color: #ededed; */
-    /* background-color: #f0d9ff; */
+    /* --------------------->Đây là chỗ chỉnh màu cho danh sách item  */
     background-color: #ebeff5;
 }
 
 #right-pane {
     width: 38%;
     min-width: 100px;
-                            /* --------------------->Đây là chỗ chỉnh màu thông tin mốc thời gian  */
-    /* background-color: white; */
-    background-color: #e1e7ee; 
-
+    /* --------------------->Đây là chỗ chỉnh màu thông tin mốc thời gian  */
+    background-color: #e1e7ee;
 }
 
+
 /* --------------------------------------------------- */
+
 .vertical {
     display: flex;
     flex-direction: column;
@@ -94,13 +97,17 @@ header {
     flex-wrap: wrap;
 }
 
+
 /* -------------------------COMMON ELEMENTS------------------------ */
+
 h1 {
     margin: 0;
     padding: 15px;
 }
 
-h2, h3, h4 {
+h2,
+h3,
+h4 {
     margin-top: 5px;
     margin-bottom: 10px;
 }
@@ -109,7 +116,8 @@ h3 {
     text-align: center;
 }
 
-.buttons button, #download {
+.buttons button,
+#download {
     min-height: 37px;
     background-color: white;
     border: solid 2px rgb(201, 201, 201);
@@ -117,20 +125,23 @@ h3 {
     box-shadow: 1px 1px #24a0ed;
 }
 
-.buttons button i, #download i {
-    color: #2d2b77; 
+.buttons button i,
+#download i {
+    color: #2d2b77;
 }
 
-.buttons button:hover, #download:hover {
+.buttons button:hover,
+#download:hover {
     cursor: pointer;
-    background-color: orange;
+    background-color: #ffccd2;
 }
 
-.buttons button:hover i, #download:hover i {
-    color: #86340a;
+.buttons button:hover i,
+#download:hover i {
+    color: #ff6131;
 }
 
-.small-buttons button{
+.small-buttons button {
     height: 25px;
     background-color: white;
     border: solid 2px gainsboro;
@@ -143,13 +154,13 @@ h3 {
     color: #2d2b77;
 }
 
-.small-buttons button:hover{
+.small-buttons button:hover {
     cursor: pointer;
-    background-color: orange;
+    background-color: #ffccd2;
 }
 
 .small-buttons button:hover i {
-    color: #86340a;
+    color: #ff6131;
 }
 
 textarea {
@@ -170,11 +181,14 @@ label {
     margin-bottom: 5px;
     margin-left: 17px;
 }
+
 select {
     height: 28px;
+    min-width: 100px;
     margin-right: 15px;
     margin-left: 15px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .input-container {
@@ -192,40 +206,70 @@ select {
     background-color: lightblue;
 }
 
+.input-container input[type="color"] {
+    height: 30px;
+    width: 29px;
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+}
+
+.input-container input[type="color"]::-webkit-color-swatch {
+    border-radius: 50%;
+}
+
+
 /* ------------------------BUTTONS LIST----------------------- */
+
 .sidebar.menu {
     margin: 25px 20px 25px 20px;
 }
 
-.sidebar.menu button, .sidebar.menu a {
+.sidebar.menu button,
+.sidebar.menu a {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
+
 /* ------------------------------------------------ */
+
 .horizontal.buttons {
     justify-content: space-evenly;
 }
 
+
 /* ------------------------------------------------ */
+
 .main-form-btns {
     margin: 10px 80px 10px 80px;
 }
 
+
 /* ------------------------------------------------ */
+
 .item-btns {
     margin-top: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
 }
 
+
 /* ------------------------------------------------ */
+
 .item-form-btns {
     margin: 10px 50px 10px 50px;
 }
 
+
 /* -------------------------------SIDEBAR---------------------------- */
-#new, #save, #download {
+
+#new,
+#save,
+#download {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     text-align: center;
@@ -235,17 +279,19 @@ select {
     text-decoration: none;
 }
 
+
 /* -------------------------------MAIN FORM------------------------ */
+
 #main-form {
     padding: 20px 20px 10px 20px;
     border-bottom: solid 3px #1416c4;
-                        /* --------------------->Đây là chỗ chỉnh màu thông tin chung cho trang trình bày  */
-    background-color: #bed5e9; 
-    /* background-color: #f3f1f5; */
-    /* background-color: #cdf2ca; */
+    /*Đây là chỗ chỉnh màu thông tin chung cho trang trình bày  */
+    background-color: #bed5e9;
 }
 
+
 /* ---------------------------ITEM VIEW---------------------------- */
+
 #items-list {
     margin: 30px 20px 20px 20px;
 }
@@ -256,7 +302,7 @@ select {
 }
 
 .item {
-    margin:5px 15px 5px 20px;
+    margin: 5px 15px 5px 20px;
     align-items: baseline;
 }
 
@@ -282,9 +328,49 @@ select {
     font-weight: bold;
 }
 
+
 /* --------------------------ITEM FORM---------------------------- */
+
 #item-form {
     margin: 20px;
+}
+
+.imore-row {
+    justify-content: center;
+}
+
+#imore {
+    height: 28px;
+    width: 100px;
+    border: solid 1px gray;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#imore-list {
+    border: solid 1px gainsboro;
+}
+
+.imore-row button {
+    height: 30px;
+    background-color: white;
+    border: solid 2px gainsboro;
+    border-radius: 15px;
+    font-size: 14px;
+    box-shadow: 1px 1px #24a0ed;
+}
+
+.imore-row button i {
+    color: #2d2b77;
+}
+
+.imore-row button:hover {
+    cursor: pointer;
+    background-color: #ffccd2;
+}
+
+.imore-row button:hover i {
+    color: #ff6131;
 }
 
 

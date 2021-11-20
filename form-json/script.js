@@ -3,11 +3,16 @@ var trealet
 var json_file = null
 
 var update_item_index = -1;
+const selected_btn_bg = "#ffccd2";
+const selected_btn_text = "#ff6131";
+const btn_bg = "#ffffff";
+const btn_text = "#93b5c6";
 
-$(document).ready(function () {
+$(document).ready(function() {
     $('#show-main-form').prop('disabled', true)
     $('#download').css("display", "none")
     $('#update').prop('disabled', true)
+    $('#add').prop('disabled', false)
     selectNavLi("#showoff")
 
     function resetMainForm() {
@@ -19,25 +24,31 @@ $(document).ready(function () {
         $('.iinput').val('')
     }
 
+    function resetImoreList() {
+        $('#imore').val('')
+        $('#imore-list').val('')
+    }
+
     function resetItemsListView() {
         $('#items-list-rows').empty()
     }
 
     function selectBtn(button) {
-        $(button).css("background-color","orange")
-        $(button).find('i').css("color","#86340a")
+        $(button).css("background-color", selected_btn_bg)
+        $(button).find('i').css("color", selected_btn_text)
     }
 
     function nonSelectBtn(btn) {
-        $(button).css("background-color","white")
-        $(button).find('i').css("color","#93b5c6")
+        $(button).css("background-color", btn_bg)
+        $(button).find('i').css("color", btn_text)
     }
 
     function nonSelectAllEditBtn() {
         update_item_index = -1
-        $('.edit-item').css("background-color","white")
-        $('.edit-item').find('i').css("color","#93b5c6")
+        $('.edit-item').css("background-color", btn_bg)
+        $('.edit-item').find('i').css("color", btn_text)
         $('#update').prop('disabled', true)
+        $('#add').prop('disabled', false)
     }
 
     // Khi chọn li, mới chỉnh css, chưa có form cho activities
@@ -49,21 +60,32 @@ $(document).ready(function () {
         $(li).css("border", "transparent")
     }
 
+    function stringToNum(text) {
+        let num = parseInt(text.replace(/\s/g, ''), 10)
+        if (isNaN(num)) return -1;
+        else if (num > 0) return num;
+        else return -1;
+    }
+
     // Chuyển dãy số lấy từ input (string) -> mảng số
-    function stringToArray(text) {
+    function stringToNumArray(text) {
+        stringToStrArray(text).map(Number);
+    }
+
+    function stringToStrArray(text) {
         let str = text.replace(/\s/g, '');
         if (str.length == 0) {
             return [];
         }
-        return str.split(',').map(Number);
+        return str.split(',');
     }
 
-    function addItemByInfo(id, time, desc, more) {
+    function addItemByInfo(image, time, idesc, more) {
         let item = {
-            id:id,
-            time:time,
-            desc:desc,
-            more:more
+            image: image,
+            time: time,
+            idesc: idesc,
+            more: more
         }
         items.push(item)
     }
@@ -76,7 +98,7 @@ $(document).ready(function () {
         items.splice(index, 0, item)
     }
 
-    function getItemHtml(no, id, time) {
+    function getItemHtml(no, image, time) {
         let item_view = $(document.createElement('div')).prop({
             class: "horizontal item"
         })
@@ -84,7 +106,7 @@ $(document).ready(function () {
             class: "item-no"
         })
         no_label.html(no.toString() + ".")
-        
+
         let item_box = $(document.createElement('div')).prop({
             class: "horizontal item-box"
         })
@@ -107,24 +129,24 @@ $(document).ready(function () {
         let iid_info = $(document.createElement('SPAN')).prop({
             class: "itime-info"
         })
-        iid_info.html(id)
+        iid_info.html(image)
         item_info.append(label_time, itime_info, label_id, iid_info)
         let btns_container = $(document.createElement('div')).prop({
             class: "horizontal small-buttons item-btns"
         })
         let delete_btn = $(document.createElement('button')).prop({
             type: "submit",
-            class: "button delete-item"
+            class: "delete-item"
         })
         delete_btn.append('<i class="fas fa-trash"></i> Xóa')
         let duplicate_btn = $(document.createElement('button')).prop({
             type: "submit",
-            class: "button duplicate-item"
+            class: "duplicate-item"
         })
         duplicate_btn.append('<i class="fas fa-copy"></i> x2')
         let edit_btn = $(document.createElement('button')).prop({
             type: "submit",
-            class: "button edit-item"
+            class: "edit-item"
         })
         edit_btn.append('<i class="fas fa-edit"></i> Chỉnh sửa')
         btns_container.append(delete_btn, duplicate_btn, edit_btn)
@@ -157,85 +179,103 @@ $(document).ready(function () {
     function showItemByIndex(index) {
         let item = items[index]
         resetItemForm();
-        $('#iid').val(item.id)
+        $('#iid').val(item.image)
         $('#itime').val(item.time)
-        $('#idesc').val(item.desc)
-        $('#imore').val(item.more)
+        $('#idesc').val(item.idesc)
+        $('#imore-list').val(item.more)
     }
 
-    $('#showoff').click(function () {
+    $('#showoff').click(function() {
         nonSelectNavLi("#activities")
         selectNavLi("#showoff")
     })
 
-    $('#activities').click(function () {
+    $('#activities').click(function() {
         nonSelectNavLi("#showoff")
         selectNavLi("#activities")
     })
 
-    $('#hide-main-form').click(function () {
+    $('#hide-main-form').click(function() {
         $('#main-form .input-container').css('display', 'none')
         $(this).prop('disabled', true)
         $('#items-list-rows').height(315)
         $('#show-main-form').prop('disabled', false)
     })
 
-    $('#show-main-form').click(function () {
+    $('#show-main-form').click(function() {
         $('#main-form .input-container').css('display', 'flex')
         $(this).prop('disabled', true)
         $('#items-list-rows').height(60)
         $('#hide-main-form').prop('disabled', false)
     })
-    
-    $('#clear').click(function () {
+
+    $('#add-imore').click(function() {
+        let imore = stringToNum($('#imore').val())
+        if (imore > 0) {
+            if (!$('#imore-list').val()) {
+                $('#imore-list').val(imore.toString())
+            } else {
+                $('#imore-list').val($('#imore-list').val() + ',' + imore.toString())
+            }
+        }
+        $('#imore').val('')
+    })
+
+    $('#clear-imore-list').click(function() {
+        resetImoreList()
+    })
+
+    $('#clear').click(function() {
         resetItemForm()
     })
 
-    $('#add').click(function () {
-        let id = $('#iid').val();
+    $('#add').click(function() {
+        let image = $('#iid').val();
         let time = $('#itime').val();
-        let desc = $('#idesc').val();
-        let more = stringToArray($('#imore').val());
-        addItemByInfo(id, time, desc, more);
-        addItemViewHtml(items.length, id, time)
+        let idesc = $('#idesc').val();
+        let more = stringToStrArray($('#imore-list').val());
+        addItemByInfo(image, time, idesc, more);
+        addItemViewHtml(items.length, image, time)
         console.log(items)
     })
 
-    $('#update').click(function () {
+    $('#update').click(function() {
         if (update_item_index >= 0 && update_item_index < items.length) {
-            items[update_item_index].id = $('#iid').val();
+            items[update_item_index].image = $('#iid').val();
             items[update_item_index].time = $('#itime').val();
-            items[update_item_index].desc = $('#idesc').val();
-            items[update_item_index].more = stringToArray($('#imore').val());
+            items[update_item_index].idesc = $('#idesc').val();
+            items[update_item_index].more = stringToStrArray($('#imore-list').val());
         }
         renderItemsListView();
     })
 
-    $(document).on('click', '.delete-item', function () {
+    $(document).on('click', '.delete-item', function() {
         let index = getIndexOfItem($(this).closest('.item'));
         deleteItemByIndex(index);
         renderItemsListView();
     })
 
-    
-    $(document).on('click', '.duplicate-item', function () {
+
+    $(document).on('click', '.duplicate-item', function() {
         let index = getIndexOfItem($(this).closest('.item'));
         let newItem = {
-            id:items[index].id,
-            time:items[index].time,
-            desc:items[index].desc,
-            more:items[index].more,
+            image: items[index].image,
+            time: items[index].time,
+            idesc: items[index].idesc,
+            more: items[index].more,
         }
         insertItemAt(index, newItem)
         renderItemsListView()
     })
 
-    $(document).on('click', '.edit-item', function () {
+    $(document).on('click', '.edit-item', function() {
         nonSelectAllEditBtn()
         selectBtn(this)
         update_item_index = getIndexOfItem($(this).closest('.item'))
         showItemByIndex(update_item_index)
         $('#update').prop('disabled', false)
+        $('#add').prop('disabled', true)
+
     })
 
     function gatherData() {
@@ -243,7 +283,9 @@ $(document).ready(function () {
         let title = $('#title').val()
         let author = $('#author').val()
         let desc = $('#desc').val()
-        trealet = {exec:exec, title:title, author:author, desc:desc, items:items}
+        let bgcolor = $('#bg-color').val()
+        let color = $('#text-color').val()
+        trealet = { exec: exec, title: title, author: author, desc: desc, bgcolor: bgcolor, color: color, items: items }
     }
 
     function makeFile(text) {
@@ -255,14 +297,14 @@ $(document).ready(function () {
         return json_file;
     }
 
-    $('#save').click(function () {
+    $('#save').click(function() {
         gatherData();
-        let datastring = JSON.stringify({trealet:trealet}, null, "\t");
+        let datastring = JSON.stringify({ trealet: trealet }, null, "\t");
         $("#download").attr("href", makeFile(datastring));
         $("#download").css("display", "block");
     })
 
-    $('#new').click(function () {
+    $('#new').click(function() {
         resetMainForm();
         resetItemForm();
         items = [];

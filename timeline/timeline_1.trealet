@@ -4,11 +4,13 @@
 		"title": "Tổng bí thư Lê Duẩn",
 		"author": "Nhóm 10",
 		"desc": "Anh Ba",
+		"bgcolor" : "#24186B",
+		"color" : "#fff",
 		"items": [
 			{
 				"time": "07.04.1907",
 				"idesc": "Đồng chí Lê Duẩn tên thật là Lê Văn Nhuận, sinh ngày 7 tháng 4 năm 1907, tại làng Bích La, xã Triệu Đông (nay thuộc xã Triệu Thành), huyện Triệu Phong, tỉnh Quảng Trị trong một gia đình nông dân. Cha ông là Lê Hiệp, làm nghề mộc. Mẹ ông là Võ Thị Đạo, làm ruộng. Sau đó ông theo gia đình về sinh sống tại làng Hậu Kiên, xã Triệu Thành cùng huyện, ở bên kia dòng sông Thạch Hãn. Khu lưu niệm về ông được xây dựng tại làng Hậu Kiên, xã Triệu Thành.",
-				"image": "7514",
+				"image": "20522",
 				"more": []
 			},
 			{
