@@ -1,0 +1,78 @@
+/*game an*/
+
+.which_first #st1 {
+    height: 500px;
+}
+
+.which_first .title {
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 100px;
+}
+
+.which_first .quiz_box {
+    /*display: flex;
+    gap: 350px;
+    margin-left: 150px;*/
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 15%;
+    min-height: calc(70vh - 20rem);
+    margin-left: 10%;
+    padding-bottom: 5%;
+}
+
+.which_first .image {
+    -webkit-box-flex: 1;
+      -ms-flex: 1 1 42rem;
+          flex: 1 1 42rem;
+  text-align: center;
+}
+.which_first .image img {
+    height: 200px;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+.which_first img:hover {
+    cursor: pointer;
+}
+
+.which_first section {
+    display: inline-flex;
+}
+.which_first .info {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 42rem;
+            flex: 1 1 42rem;
+  }
+
+.which_first section .after {
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: -10px;
+    margin-left: 25px;
+    padding-bottom: 30px;
+}
+
+.which_first section p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 10px;
+    margin-left: 25px;
+    width:200px;
+}
+
+.which_first .result {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+    margin-left: 50%;
+    
+}

@@ -42,7 +42,22 @@ $iu = array($ni);
           $more_data = fetchItemData($more);
           $url_full = $more_data['url_full'];
           $desc = $more_data['desc'];
-          $html .= '<a href="' . $url_full . '" data-fancybox="' . $i . '" data-caption="' . $desc . '">';
+          $ext = strtoupper(pathinfo($url_full, PATHINFO_EXTENSION));
+          $vid = file_get_contents('https://hcloud.trealet.com' . $url_full);
+
+          if ($ext == "YTB" || $ext=='GLB') {
+            $html .= '<a href="https://www.youtube.com/embed/' . $vid . '" data-fancybox="' . $i . '" data-caption="' . $desc . '"></a>';
+          } 
+          else if($ext=='MP4') {
+            $html .= '<div style="display:none"><a href="' . $url_full . '" data-fancybox="' . $i . '" data-caption="' . $desc . '">
+                        <img class="rounded" src= "../lib/iconmp4.jpg">
+                        </a></div>';
+          }
+          else {
+            $html .= '<div style="display:none"><a href="' . $url_full . '" data-fancybox="' . $i . '" data-caption="' . $desc . '">
+                        <img class="rounded" src= "' . $url_full . '">
+                        </a></div>';
+          }
         }
       }
 
@@ -50,6 +65,7 @@ $iu = array($ni);
     </div>
   </div>
   <?php echo $html; ?>
+  <a href="">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
@@ -63,15 +79,7 @@ $iu = array($ni);
           activeClass: "timeline-item--active",
           img: ".timeline__img"
         };
-        /* selectors.id.css(
-           "background-image",
-           "url(" +
-           selectors.item
-             .first()
-             .find(selectors.img)
-             .attr("src") +
-           ")"
-         );*/
+        
         var itemLength = selectors.item.length;
         $(window).scroll(function() {
           var max, min;
@@ -82,25 +90,10 @@ $iu = array($ni);
             var that = $(this);
             if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
               selectors.item.removeClass(selectors.activeClass);
-              /*selectors.id.css(
-                "background-image",
-                "url(" +
-                selectors.item
-                  .last()
-                  .find(selectors.img)
-                  .attr("src") +
-                ")"
-              );*/
+              
               selectors.item.last().addClass(selectors.activeClass);
             } else if (pos <= max - 0 && pos >= min) {
-              /*selectors.id.css(
-               // "background-image",
-                "url(" +
-                $(this)
-                  .find(selectors.img)
-                  .attr("src") +
-                ")"
-              );*/
+              
               selectors.item.removeClass(selectors.activeClass);
               $(this).addClass(selectors.activeClass);
             }
@@ -121,10 +114,52 @@ $iu = array($ni);
   </script>
 
   <script>
+    /*
     Fancybox.bind("[data-fancybox]", {
       placeFocusBack: false,
     });
+
+    $('[data-fancybox]').fancybox({
+    type : 'iframe',
+    iframe : {
+        scrolling : 'no',
+        hideScrollbar: true,
+        preload: false,
+    }
+})*/
   </script>
+  <script>
+    Fancybox.bind('[data-fancybox="gallery"]', {
+    dragToClose: false,
+/*
+  Toolbar: false,
+  closeButton: "top",
+
+  Image: {
+    zoom: true,
+  },
+
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },*/
+});
+  </script>
+
 </body>
 
 </html>

@@ -1,0 +1,68 @@
+/* Game trắc nghiệm - LA*/
+
+.mc_quiz .vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mc_quiz .horizontal {
+    display: flex;
+    flex-direction: row;   
+    flex-wrap: wrap;
+}
+
+.mc_quiz .center {
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mc_quiz #ask {
+    margin: 35px;
+}
+
+.mc_quiz #ask img {
+    max-width: 500px;
+}
+
+.mc_quiz #ask p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.mc_quiz #options-container {
+    margin: 30px;
+}
+
+.mc_quiz .option {
+    margin: 20px;
+    padding: 20px;
+    background-image: linear-gradient(to top right, rgb(255, 225, 225), rgb(186, 255, 180));
+    border: solid 1px peru;
+    border-radius: 15px;
+}
+
+.mc_quiz .option:hover {
+    cursor: pointer;
+    background-color: rgb(74, 187, 231);
+}
+
+.mc_quiz .option input {
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
+}
+
+.mc_quiz .option img {
+    max-width: 250px;
+    margin: 10px;
+}
+
+.mc_quiz .option p {
+    margin: 0;
+    font-size: 20px;
+    text-align: left;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
