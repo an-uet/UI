@@ -1,0 +1,79 @@
+{
+    "trealet": {
+        "exec": "step-ques",
+        "title": "Chào mừng bạn đến với Bảo tàng Dân tộc học Việt Nam",
+        "desc": "Bắt đầu hành trình khám phá lịch sử cũng như văn hóa của đồng bào 54 dân tộc anh em tại Việt Nam với đa dạng nét văn hóa vô cùng đặc sắc.",
+        "image":"24850",
+
+        "data": [
+            {
+                "title": "hello",
+                "desc": "nhap vi tri......",
+                "type": "fill_blank",
+                "sentence": "Lê Duẩn tên thật là Lê Văn Nhuận, sinh ngày 7 tháng 4 năm 1907, tại làng Bích La, xã Triệu Đông (nay thuộc xã Triệu Thành), huyện Triệu Phong, tỉnh Quảng Trị",
+                "key": "Lê Văn Nhuận",
+                "hint": ""
+            },
+            {
+                "title": "hello",
+                "desc": "nhap vi tri......",
+                "type": "which_first",
+                "question": "Sự kiện nào diễn ra trước? ",
+                "answer": "1911",
+                "hint":"",
+                "options": [
+                    {
+                        "time": "1911",
+                        "src": "20818",
+                        "desc": "Bác Hồ ra đi tìm đường cứu nước"
+                    },
+                    {
+                        "time": "1945",
+                        "src": "20818",
+                        "desc": "Cách mạng tháng 8 thành công nha em có một con mèo"
+                    }
+                ]
+            },
+            {
+                "title": "hello",
+                "desc": "nhap vi tri......",
+                "type": "display",
+                "id": "20810",
+                "question": "nhập câu hỏi?",
+                "key": "hello",
+                "hint": ""
+            },
+            {
+                "type": "mc_quiz",
+                "hint":"",
+                "ask": {
+                    "text": "Đây là bức chân dung của ai ?",
+                    "item": "20642"
+                },
+                "options": [
+                    {
+                        "text": "Trần Hưng Đạo",
+                        "item": "20522",
+                        "id": "1"
+                    },
+                    {
+                        "text": "Vua Quang Trung",
+                        "item": "20778",
+                        "id": "2"
+                    },
+                    {
+                        "text": "Lý Thường Kiệt",
+                        "item": "20738",
+                        "id": "3"
+                    },
+                    {
+                        "text": "Đinh Bộ Lĩnh",
+                        "item": "20874",
+                        "id": "4"
+                    }
+                ],
+                "answer": "3"
+            }
+        ]
+    }
+}

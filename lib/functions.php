@@ -37,7 +37,7 @@ function fetchItemData($item_url)
 	}
 }
 
-function htmlStepQues($index, $game_title, $game_desc)
+function htmlStepQues($index, $idata, $game_title, $game_desc)
 {
 	if (isset($idata['url_full'])) //Show up the data item
 	{
@@ -53,19 +53,27 @@ function htmlStepQues($index, $game_title, $game_desc)
 		if ($ext == 'GIF' || $ext == 'JPEG' || $ext == 'JPG' || $ext == 'PNG' || $ext == 'TIF' || $ext == 'TIFF') {
 			//$vobj .= '<center><img src="'.$url_full.'" style="max-width:90%;"></center>';
 
-			$html = '<li>
+			$html = 
+			'<li>
 			<div>
 				<div class="icon animate pulse" data-wow-delay="0.4">
-					<img id="' . $index . '" src="' . $url_full . '">
+					<img id="'.$index.'" src="'.$url_full.'">
 				</div>
+				<div class="oneStep'.$index.'">
+                    
+                                        
+            </div>
 			</div>
 			<div class="media-body">
-				<h4>' . $game_title . '</h4>
-				<p>' . $game_desc . '</p>
+				<h4>'.$game_title.'</h4>
+				<p>'.$game_desc.'</p>
 			</div>
 		</li>';
 		}
+		return $html;
 	}
+
+	
 }
 
 
@@ -189,3 +197,8 @@ function htmlItem($trealet_id, $nij, $css_input_id = '', $idata, $itime, $timeli
 		return $html;
 	}
 }
+
+
+
+
+

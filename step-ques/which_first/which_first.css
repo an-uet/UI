@@ -1,21 +1,19 @@
-/*game an*/
-
 .which_first #st1 {
     height: 500px;
-}
-
-.which_first .title {
-    font-size: 40px;
+    margin-top: 6vh;
+    
+  }
+  
+  .which_first .title {
+    font-size: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     padding-top: 20px;
-    padding-bottom: 100px;
-}
-
-.which_first .quiz_box {
-    /*display: flex;
-    gap: 350px;
-    margin-left: 150px;*/
+    padding-bottom: 7vh;
+  }
+  
+  .which_first .quiz_box {
+  
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -24,55 +22,117 @@
             align-items: center;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    gap: 15%;
-    min-height: calc(70vh - 20rem);
-    margin-left: 10%;
-    padding-bottom: 5%;
-}
-
-.which_first .image {
+    gap: 15vh;
+    min-height: 20vh;
+    padding-bottom: 7vh;
+    justify-content: center;
+  }
+  
+  .which_first .image {
     -webkit-box-flex: 1;
       -ms-flex: 1 1 42rem;
           flex: 1 1 42rem;
   text-align: center;
-}
-.which_first .image img {
-    height: 200px;
+  }
+  .which_first .image img {
+    height: 120px;
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-}
-
-.which_first img:hover {
+    max-width: 250px;
+    animation: beat .6s infinite alternate;
+  transform-origin: center;
+  
+  }
+  @keyframes beat{
+  to { transform: scale(1.1); }
+  }
+  
+  .which_first img:hover {
     cursor: pointer;
-}
-
-.which_first section {
+  }
+  
+  .which_first section {
     display: inline-flex;
-}
-.which_first .info {
+  }
+  .which_first .info {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 42rem;
             flex: 1 1 42rem;
   }
-
-.which_first section .after {
-    font-size: 50px;
+  
+  .which_first section .after {
+    font-size: 40px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: -10px;
     margin-left: 25px;
     padding-bottom: 30px;
-}
-
-.which_first section p {
+  }
+  
+  .which_first section p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 10px;
     margin-left: 25px;
     width:200px;
-}
-
-.which_first .result {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 30px;
-    font-weight: bolder;
-    margin-left: 50%;
     
-}
+  }
+  
+  .which_first .result {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    font-weight: bolder;
+    align-self: center;
+    text-align: center;
+    padding-bottom: 20px;
+   
+  }
+  .none {
+    display: none;
+  }
+  
+  .disable { 
+    pointer-events: none; 
+  }
+  .noClick{
+    pointer-events: none;
+  }
+  
+  @media screen and (max-width: 376px) {
+    .which_first .quiz_box {
+      width: 300px;
+      gap: 10vh;
+    }
+    .which_first .image img {
+      width: 120px;
+      height: auto;
+      margin-left: 60px;
+    }
+    .which_first .result {
+      font-size: 30px;
+      text-align: center;
+    }
+    .which_first section p {
+      padding-right: 10px
+    }
+    
+  }
+  
+  
+  @media screen and (max-width: 415px) {
+    .which_first .quiz_box {
+      width: 300px;
+      gap: 10vh;
+    }
+    .which_first .image img {
+      width: 120px;
+      height: auto;
+      margin-left: 80px;
+    }
+    .which_first .result {
+      font-size: 30px;
+      text-align: center;
+      
+    }
+    .which_first section p {
+      padding-right: 10px
+    }
+    
+  }

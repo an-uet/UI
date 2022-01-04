@@ -1,68 +1,106 @@
 /* Game trắc nghiệm - LA*/
 
-.mc_quiz .vertical {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#game_mc_quiz {
+  color: black;
 }
 
-.mc_quiz .horizontal {
-    display: flex;
-    flex-direction: row;   
-    flex-wrap: wrap;
+#game_mc_quiz .row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 15px;
 }
 
-.mc_quiz .center {
-    justify-content: space-around;
-    align-items: center;
+#game_mc_quiz .vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
-.mc_quiz #ask {
-    margin: 35px;
+#game_mc_quiz .ask-container {
+  width: 100%;
+  justify-content: center;
 }
 
-.mc_quiz #ask img {
-    max-width: 500px;
+#game_mc_quiz .ask-container .ask-wrapper {
+  font-size: 25px;
+  width: 80%;
+  max-width: 700px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  background-color: #dbd0c0;
+  border: solid 1px gainsboro;
+  border-radius: 20px;
 }
 
-.mc_quiz #ask p {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 30px;
-    font-weight: 600;
+#game_mc_quiz .ask-container .img-style {
+  width: 100%;
+  max-width: 500px;
+  border: solid 1px gainsboro;
+  border-radius: 20px;
 }
 
-.mc_quiz #options-container {
-    margin: 30px;
+#game_mc_quiz .option-wrapper {
+  width: 250px;
+  height: 280px;
 }
 
-.mc_quiz .option {
-    margin: 20px;
-    padding: 20px;
-    background-image: linear-gradient(to top right, rgb(255, 225, 225), rgb(186, 255, 180));
-    border: solid 1px peru;
-    border-radius: 15px;
+#game_mc_quiz .option {
+  background-color: #f6eabe;
+  border: solid 1px gainsboro;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-.mc_quiz .option:hover {
-    cursor: pointer;
-    background-color: rgb(74, 187, 231);
+#game_mc_quiz .option:hover {
+  transform: scale(1.1, 1.1);
+  background-color: #f9cf93;
 }
 
-.mc_quiz .option input {
-    width: 25px;
-    height: 25px;
-    margin-right: 20px;
+#game_mc_quiz .option:disabled {
+  color: black;
 }
 
-.mc_quiz .option img {
-    max-width: 250px;
-    margin: 10px;
+#game_mc_quiz .options-container .img-style {
+  margin: 5px;
+  max-width: 180px;
+  height: 180px;
+  border: solid 1px gainsboro;
+  border-radius: 20px;
 }
 
-.mc_quiz .option p {
-    margin: 0;
-    font-size: 20px;
-    text-align: left;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+#game_mc_quiz .result_mc_quiz {
+  color: rgb(51, 9, 9);
+  font-size: 40px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 800;
+  padding: 40px;
+  text-align: center;
 }
+
+
+#game_mc_quiz #mc_submit {
+  display: inline-flex;
+  background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
+  padding: 15px 35px;
+  border-radius: 50px;
+  color: #fff;
+  box-shadow: 0px 14px 80px rgba(252, 56, 56, 0.4);
+  text-decoration: none;
+  font-weight: 500;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 600px) {
+  #game_mc_quiz #mc_submit {
+    width: 100%;
+  }
+}
+
